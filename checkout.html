@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-N4PFW97");
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -15,13 +29,23 @@
       crossorigin="anonymous"
     />
     <style>
-      input[type='number'] {
+      input[type="number"] {
         width: 50px;
       }
     </style>
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-N4PFW97"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden;"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="container">
       <h1>Shopping Checkout</h1>
       <form>
@@ -61,18 +85,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
       function onCheckout() {
-        if (confirm('success?')) {
-          txt = 'You pressed OK!';
+        if (confirm("success?")) {
+          txt = "You pressed OK!";
           window.location.href =
-            'https://gtm-workshop-shop.netlify.app/thankyou.html';
+            "https://gtm-workshop-shop.netlify.app/thankyou.html";
         } else {
-          txt = 'You pressed Cancel!';
+          txt = "You pressed Cancel!";
         }
       }
       var shopcart = [];
       $(document).ready(function () {
         outputCart();
-        $('#output').on('change keyup', '.dynqua', function () {
+        $("#output").on("change keyup", ".dynqua", function () {
           var iteminfo = $(this.dataset)[0];
           var itemincart = false;
           console.log(shopcart);
@@ -87,17 +111,17 @@
               itemincart = true;
             }
           });
-          sessionStorage['sca'] = JSON.stringify(shopcart);
+          sessionStorage["sca"] = JSON.stringify(shopcart);
           outputCart();
         });
 
         function outputCart() {
-          if (sessionStorage['sca'] != null) {
-            shopcart = JSON.parse(sessionStorage['sca'].toString());
+          if (sessionStorage["sca"] != null) {
+            shopcart = JSON.parse(sessionStorage["sca"].toString());
           }
-          console.log(sessionStorage['sca']);
+          console.log(sessionStorage["sca"]);
           console.log(shopcart);
-          var holderHTML = '';
+          var holderHTML = "";
           var total = 0;
           var itemCnt = 0;
           $.each(shopcart, function (index, value) {
@@ -116,11 +140,11 @@
               a +
               '" value="' +
               value.name +
-              ' ' +
+              " " +
               value.s +
               '">' +
               value.name +
-              '(' +
+              "(" +
               value.s +
               ')</td><td><input type="hidden" name="amount_' +
               a +
@@ -130,13 +154,13 @@
               formatMoney(value.price) +
               ' </td><td class="text-xs-right"> ' +
               formatMoney(stotal) +
-              '</td></tr>';
+              "</td></tr>";
           });
           holderHTML +=
             '<tr><td colspan="3" class="text-xs-right">Total</td><td class="text-xs-right">$' +
             formatMoney(total) +
-            '</td></tr>';
-          $('#output').html(holderHTML);
+            "</td></tr>";
+          $("#output").html(holderHTML);
         }
 
         function formatMoney(n) {
