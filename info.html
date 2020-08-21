@@ -1,48 +1,73 @@
 <head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KXRVVXT');
+  </script>
+  <!-- End Google Tag Manager -->
   <meta http-equiv="Access-Control-Allow-Origin" content="*" />
 </head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript
+    ><iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-KXRVVXT"
+      height="0"
+      width="0"
+      style="display: none; visibility: hidden;"
+    ></iframe
+  ></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-<div class="container">
-  <h1>Shopping Checkout</h1>
-  <form
-    action="https://www.paypal.com/cgi-bin/webscr"
-    method="post"
-    target="_top"
-  >
-    <input
-      type="hidden"
-      name="business"
-      value="womghei-facilitator@connect.hku.hk"
-    />
-    <input type="hidden" name="tx" value="94660023NJ8400100" />
-    <input type="hidden" name="lc" value="2" />
-    <input
-      type="hidden"
-      name="return"
-      value="http://net.tutsplus.com/payment-complete/"
-    />
-    <table class="table table-hover">
-      <thead class="thead-inverse">
-        <tr>
-          <th>Qty</th>
-          <th>Item Name</th>
-          <th>Cost</th>
-          <th class="text-xs-right">Subtotal</th>
-        </tr>
-      </thead>
-      <tbody id="output"></tbody>
-    </table>
-    <input
-      type="submit"
-      class="btn btn-primary btn-block"
-      value="Checkout with PayPal"
-    />
-    <a href="products.html" class="btn btn-success btn-block"
-      >Continue Shopping</a
+  <div class="container">
+    <h1>Shopping Checkout</h1>
+    <form
+      action="https://www.paypal.com/cgi-bin/webscr"
+      method="post"
+      target="_top"
     >
-  </form>
-</div>
-
+      <input
+        type="hidden"
+        name="business"
+        value="womghei-facilitator@connect.hku.hk"
+      />
+      <input type="hidden" name="tx" value="94660023NJ8400100" />
+      <input type="hidden" name="lc" value="2" />
+      <input
+        type="hidden"
+        name="return"
+        value="http://net.tutsplus.com/payment-complete/"
+      />
+      <table class="table table-hover">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Qty</th>
+            <th>Item Name</th>
+            <th>Cost</th>
+            <th class="text-xs-right">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="output"></tbody>
+      </table>
+      <input
+        type="submit"
+        class="btn btn-primary btn-block"
+        value="Checkout with PayPal"
+      />
+      <a href="products.html" class="btn btn-success btn-block"
+        >Continue Shopping</a
+      >
+    </form>
+  </div>
+</body>
 <script type="text/javascript">
   window.onload = function () {
     //    $.ajax({
